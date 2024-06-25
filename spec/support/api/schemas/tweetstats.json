@@ -1,0 +1,15 @@
+{
+    "type": "object",
+    "required": ["tweet_stats"],
+    "properties": {
+      "tweet_stats": {
+        "type": "object",
+        "required": ["retweet_count", "like_count", "bookmark_count"],
+        "properties": {
+          "retweet_count": { "type": "integer", "minimum": 0 },
+          "like_count": { "type": "integer", "minimum": 0 },
+          "bookmark_count": { "type": "integer", "minimum": 0 }
+        }
+      }
+    }
+  }

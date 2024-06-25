@@ -1,0 +1,16 @@
+<h1>New tweet</h1>
+<%= form_with do |form| %>
+  <%= form.text_area :body, size: "40x10" %>
+  <%= form.hidden_field :user_id  %>
+  <div>
+  <%= form.submit%>
+  </div>
+<% end %>
+
+<%= render "form", tweet: @tweet %>
+
+<br>
+
+<div>
+  <%= link_to "Back to tweets", tweets_path %>
+</div>

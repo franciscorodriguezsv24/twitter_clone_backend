@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+     <% if user_signed_in?%>
+      <p class="m-0"><%= current_user.username %></p>
+     <% else %>
+      <p class="m-0"> Xwitert</p>
+     <%end%>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        
+        <li class= "new nabvar-var navbar-right m-0 p-0 d-flex align-items-center gap-3">
+        <% if user_signed_in?%>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" %>
+            <% else %>
+            <%= link_to "sign up", new_user_registration_path, class:"link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" %> 
+            <%= link_to "Login", new_user_session_path, class: "link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" %>
+        <%end%>
+        </li> 
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<p style="color: green"><%= notice %></p>
+
+
+
+
+
+<h1>Tweets</h1>
+
+<div id="tweets">
+<div class="border border-primary w-50">
+<% @tweets.each do |tweet| %>
+  <div class="d-flex flex-row ">
+  <%=tweet.user.username%>
+  <%=tweet.id%>
+  </div>
+
+  <%=tweet.body%>
+
+<%= render tweet %>
+</div>
+ 
+  <p>
+    <%= link_to "Show this tweet", tweet %>
+  </p>
+<% end %>
+</div>
+
+<%= link_to "New tweet", new_tweet_path %>
+</div>
+
+
+

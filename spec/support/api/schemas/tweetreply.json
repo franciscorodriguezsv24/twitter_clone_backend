@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "required": ["tweetreply"],
+    "properties": {
+      "tweetreply": {
+        "type": "object", 
+        "required": [
+          "user_id", 
+          "tweet_id", 
+          "body"
+      ],
+        "properties": {
+          "id": { "type": "integer" },
+          "user_id": { "type": "integer" },
+          "tweet_id": { "type": "integer" },
+          "body": { "type": "string" },
+          "created_at": { "type": "string", "format": "date-time" },
+          "updated_at": { "type": "string", "format": "date-time" }
+        }
+      }
+    }
+  }
